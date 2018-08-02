@@ -1,16 +1,21 @@
 <?php
+Route::resource('client','ClientController');
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('api')->group(function (){
+    Route::get('shops','ShopController@index');
+    Route::get('shops_info','ShopController@shopInfo');
+    Route::post('regist','ShopController@regist');
+    Route::get('sms','ShopController@sms');
+    Route::post('loginCheck','ShopController@loginCheck');
+    Route::post('addAddress','ShopController@addaddress');
+    Route::get('addressList','ShopController@addressList');
+    Route::get('address','ShopController@address');
+    Route::post('editAddress','ShopController@editAddress');
+    Route::post('addCart','ShopController@addCart');
+    Route::post('addOrder','ShopController@addOrder');
+    Route::get('orderList','shopController@orderList');
+    Route::post('changePassword','shopController@changePassword');
+    Route::get('cart','shopController@cart');
+    Route::get('order','shopController@order');
+//    Route::get('mail','shopController@mail');
 });
